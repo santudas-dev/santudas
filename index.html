@@ -412,6 +412,124 @@
     .cta-row{display:flex;gap:14px;flex-wrap:wrap; margin: 24px 0;}
     .socials{display:flex;gap:12px;margin-top:20px}
 
+    /* Social Media Icons with Twitter Animation */
+    .icon{
+      display:inline-grid;
+      place-items:center;
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      font-weight:700;
+      transition: var(--transition);
+      text-decoration: none;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+      animation: social-pulse 3s infinite;
+    }
+    
+    .icon::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: rotate(45deg);
+      transition: all 0.5s;
+      opacity: 0;
+    }
+    
+    .icon:hover::after {
+      animation: social-shine 0.8s;
+    }
+    
+    .icon:hover {
+      transform: translateY(-5px) scale(1.1);
+    }
+    
+    @keyframes social-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.3); }
+      50% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    }
+    
+    @keyframes social-shine {
+      0% { opacity: 0; transform: rotate(45deg) translateX(-100%); }
+      50% { opacity: 1; }
+      100% { opacity: 0; transform: rotate(45deg) translateX(100%); }
+    }
+    
+    /* LinkedIn Icon */
+    .icon.linkedin {
+      background: linear-gradient(135deg, #0077B5, #00A0DC);
+      color: white;
+    }
+    
+    .icon.linkedin::before {
+      content: 'in';
+      font-weight: 700;
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+    }
+    
+    .icon.linkedin:hover {
+      box-shadow: 0 8px 20px rgba(0, 119, 181, 0.4), 0 0 15px rgba(0, 119, 181, 0.3);
+    }
+    
+    /* Instagram Icon with Image */
+    .icon.instagram {
+      background: linear-gradient(135deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
+      color: white;
+      position: relative;
+    }
+    
+    .icon.instagram img {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) invert(1);
+      object-fit: contain;
+    }
+    
+    .icon.instagram:hover {
+      box-shadow: 0 8px 20px rgba(225, 48, 108, 0.4), 0 0 15px rgba(225, 48, 108, 0.3);
+    }
+    
+    /* GitHub Icon with Image */
+    .icon.github {
+      background: linear-gradient(135deg, #333, #6e5494);
+      color: white;
+      position: relative;
+    }
+    
+    .icon.github img {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) invert(1);
+      object-fit: contain;
+    }
+    
+    .icon.github:hover {
+      box-shadow: 0 8px 20px rgba(51, 51, 51, 0.4), 0 0 15px rgba(51, 51, 51, 0.3);
+    }
+    
+    /* Twitter Icon */
+    .icon.twitter {
+      background: linear-gradient(135deg, #1DA1F2, #0d8bd9);
+      color: white;
+    }
+    
+    .icon.twitter::before {
+      content: '𝕏';
+      font-weight: 700;
+      font-size: 16px;
+    }
+    
+    .icon.twitter:hover {
+      box-shadow: 0 8px 20px rgba(29, 161, 242, 0.4), 0 0 15px rgba(29, 161, 242, 0.3);
+    }
+
     /* Right card */
     .profile-card{
       background:var(--card);
@@ -517,6 +635,11 @@
       position: relative;
       overflow: hidden;
       backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 160px;
     }
     
     .skill-card::before {
@@ -545,10 +668,21 @@
     }
     
     .skill-icon {
-      font-size: 32px;
+      width: 50px;
+      height: 50px;
       margin-bottom: 12px;
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
+    }
+    
+    .skill-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      max-width: 100%;
+      max-height: 100%;
     }
     
     .skill-name {
@@ -560,6 +694,143 @@
     .skill-level {
       font-size: 13px;
       color: var(--muted);
+    }
+
+    /* Skill Details Panel */
+    .skill-details {
+      background: var(--glass);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      transition: var(--transition);
+      opacity: 0;
+      transform: translateY(20px);
+      height: 0;
+      overflow: hidden;
+    }
+    
+    .skill-details.active {
+      opacity: 1;
+      transform: translateY(0);
+      height: auto;
+    }
+    
+    .skill-details-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    
+    .skill-details-title {
+      margin: 0;
+      font-size: 18px;
+      background: linear-gradient(90deg, var(--text), #a5b4fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .skill-details-close {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: 18px;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 4px;
+      border-radius: 4px;
+    }
+    
+    .skill-details-close:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.05);
+    }
+    
+    .skill-stats {
+      display: flex;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    
+    .stat-card {
+      background: rgba(255,255,255,0.05);
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+      flex: 1;
+    }
+    
+    .stat-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    
+    .skill-projects {
+      margin-top: 20px;
+    }
+    
+    .skill-projects h4 {
+      margin: 0 0 12px;
+      font-size: 16px;
+      color: var(--text);
+    }
+    
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .project-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 10px;
+      transition: var(--transition);
+    }
+    
+    .project-item:hover {
+      background: rgba(255,255,255,0.05);
+    }
+    
+    .project-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: white;
+    }
+    
+    .project-info {
+      flex: 1;
+    }
+    
+    .project-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text);
+    }
+    
+    .project-desc {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
     }
 
     /* Enhanced Projects Section */
@@ -750,154 +1021,7 @@
       .hero { gap: 24px; margin-bottom: 40px; }
       .creative-headline { font-size: 28px; }
       .avatar { width: 60px; height: 60px; font-size: 20px; }
-    }
-
-    /* Social Media Icons */
-    .icon{
-      display:inline-grid;
-      place-items:center;
-      width:44px;
-      height:44px;
-      border-radius:12px;
-      background:var(--glass);
-      font-weight:700;
-      transition: var(--transition);
-      text-decoration: none;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.06);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .icon:hover {
-      transform: translateY(-5px) scale(1.1);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3), 0 0 15px rgba(255,255,255,0.1);
-    }
-    
-    /* LinkedIn Icon */
-    .icon.linkedin {
-      background: linear-gradient(135deg, #0077B5, #00A0DC);
-      color: white;
-    }
-    
-    .icon.linkedin::before {
-      content: 'in';
-      font-weight: 700;
-      font-size: 16px;
-      font-family: Arial, sans-serif;
-    }
-    
-    .icon.linkedin:hover {
-      box-shadow: 0 8px 20px rgba(0, 119, 181, 0.4), 0 0 15px rgba(0, 119, 181, 0.3);
-    }
-    
-    /* Instagram Icon */
-    .icon.instagram {
-      background: linear-gradient(135deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D, #F56040, #F77737, #FCAF45, #FFDC80);
-      color: white;
-      position: relative;
-    }
-    
-    .icon.instagram::before {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border: 2px solid white;
-      border-radius: 5px;
-    }
-    
-    .icon.instagram::after {
-      content: '';
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border: 2px solid white;
-      border-radius: 50%;
-      top: 5px;
-      right: 5px;
-    }
-    
-    .icon.instagram:hover {
-      box-shadow: 0 8px 20px rgba(225, 48, 108, 0.4), 0 0 15px rgba(225, 48, 108, 0.3);
-    }
-    
-    /* GitHub Icon */
-    .icon.github {
-      background: linear-gradient(135deg, #333, #6e5494);
-      color: white;
-      position: relative;
-    }
-    
-    .icon.github::before {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: 
-        radial-gradient(circle at 30% 30%, white 15%, transparent 16%),
-        radial-gradient(circle at 70% 30%, white 15%, transparent 16%),
-        radial-gradient(ellipse at 50% 70%, white 30%, transparent 31%);
-    }
-    
-    .icon.github::after {
-      content: '';
-      position: absolute;
-      width: 12px;
-      height: 6px;
-      background: white;
-      border-radius: 50% 50% 0 0;
-      bottom: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    
-    .icon.github:hover {
-      box-shadow: 0 8px 20px rgba(51, 51, 51, 0.4), 0 0 15px rgba(51, 51, 51, 0.3);
-    }
-    
-    /* Enhanced Twitter Icon */
-    .icon.twitter {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #1DA1F2, #0d8bd9);
-      color: white;
-      animation: twitter-pulse 3s infinite;
-      border: none;
-    }
-    
-    .icon.twitter::before {
-      content: '𝕏';
-      font-weight: 700;
-      font-size: 16px;
-    }
-    
-    .icon.twitter::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-      transform: rotate(45deg);
-      transition: all 0.5s;
-      opacity: 0;
-    }
-    
-    .icon.twitter:hover::after {
-      animation: twitter-shine 0.8s;
-    }
-    
-    @keyframes twitter-pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(29, 161, 242, 0.6); }
-      50% { box-shadow: 0 0 0 10px rgba(29, 161, 242, 0); }
-    }
-    
-    @keyframes twitter-shine {
-      0% { opacity: 0; transform: rotate(45deg) translateX(-100%); }
-      50% { opacity: 1; }
-      100% { opacity: 0; transform: rotate(45deg) translateX(100%); }
+      .skills-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
     }
     
     a.link{
@@ -1053,8 +1177,12 @@
 
           <div class="socials" aria-label="social links">
             <a class="icon linkedin" title="LinkedIn" href="https://www.linkedin.com/in/santu-das-8892a7284/" target="_blank" rel="noopener"></a>
-            <a class="icon instagram" title="Instagram" href="https://www.instagram.com/santudas9112/" target="_blank" rel="noopener"></a>
-            <a class="icon github" title="GitHub" href="https://github.com/santudas-dev" target="_blank" rel="noopener"></a>
+            <a class="icon instagram" title="Instagram" href="https://www.instagram.com/santudas9112/" target="_blank" rel="noopener">
+              <img src="insta.png" alt="Instagram" width="40" height="40">
+            </a>
+            <a class="icon github" title="GitHub" href="https://github.com/santudas-dev" target="_blank" rel="noopener">
+              <img src="github.png" alt="GitHub" width="24" height="24">
+            </a>
             <a class="icon twitter" title="Twitter" href="https://x.com/SantuDasAndroid" target="_blank" rel="noopener"></a>
           </div>
         </div>
@@ -1090,50 +1218,65 @@
         <div class="skills-container">
           <div class="skills-grid">
             <div class="skill-card" data-skill="flutter">
-              <img src="flutter.png" width="50" height=" 50">
+              <div class="skill-icon">
+                <img src="flutter.png" alt="Flutter" width="50" height="50">
+              </div>
               <div class="skill-name">Flutter</div>
               <div class="skill-level">Advanced</div>
             </div>
             
             <div class="skill-card" data-skill="dart">
-              <img src="dart.png" width="50" height=" 50">
+              <div class="skill-icon">
+                <img src="dart.png" alt="Dart" width="50" height="50">
+              </div>
               <div class="skill-name">Dart</div>
               <div class="skill-level">Advanced</div>
             </div>
             
             <div class="skill-card" data-skill="kotlin">
-             <img src="kotlin.png" width="50" height=" 50">
+              <div class="skill-icon">
+                <img src="kotlin.png" alt="Kotlin" width="50" height="50">
+              </div>
               <div class="skill-name">Kotlin</div>
               <div class="skill-level">Advanced</div>
             </div>
             
             <div class="skill-card" data-skill="java">
-              <span class="skill-icon">☕</span>
+              <div class="skill-icon">
+                <img src="java.png" alt="Java" width="50" height="50">
+              </div>
               <div class="skill-name">Java</div>
               <div class="skill-level">Intermediate</div>
             </div>
             
             <div class="skill-card" data-skill="firebase">
-              <!-- <span class="skill-icon "  >🔥</span> -->
-              <img src="firebase.png" width="50" height=" 50">
+              <div class="skill-icon">
+                <img src="firebase.png" alt="Firebase" width="50" height="50">
+              </div>
               <div class="skill-name">Firebase</div>
               <div class="skill-level">Intermediate</div>
             </div>
             
             <div class="skill-card" data-skill="rest">
-              <span class="skill-icon">🔗</span>
+              <div class="skill-icon">
+                <img src="api.png" alt="REST APIs" width="50" height="50">
+              </div>
               <div class="skill-name">REST APIs</div>
               <div class="skill-level">Intermediate</div>
             </div>
             
             <div class="skill-card" data-skill="uiux">
-              <span class="skill-icon">🎨</span>
+              <div class="skill-icon">
+                <img src="uiux.png" alt="UI/UX Design" width="50" height="50">
+              </div>
               <div class="skill-name">UI/UX Design</div>
               <div class="skill-level">Intermediate</div>
             </div>
             
             <div class="skill-card" data-skill="sql">
-              <span class="skill-icon">🗃️</span>
+              <div class="skill-icon">
+                <img src="sql.png" alt="SQL" width="50" height="50">
+              </div>
               <div class="skill-name">SQL</div>
               <div class="skill-level">Basic</div>
             </div>
@@ -1437,26 +1580,22 @@
       flutter: {
         title: "Flutter Development",
         experience: "2+ years",
-        projects: 5,
+        projects: 4,
         description: "Cross-platform mobile development using Flutter framework with Dart programming language.",
         projectsList: [
           { name: "E-HostelCare", description: "Hostel management system with admin dashboard" },
           { name: "Quick Bite Food Delivery", description: "Complete food ordering and delivery solution" },
           { name: "TextLens", description: "AI-powered text recognition and translation app" },
-          { name: "Weather App", description: "Real-time weather information with beautiful UI" },
-          { name: "E-Commerce App", description: "Shopping app with cart and payment integration" }
+          { name: "To-Do List App", description: "Task management with notifications and categories" }
         ]
       },
       dart: {
         title: "Dart Programming",
         experience: "2+ years",
-        projects: 5,
+        projects: 4,
         description: "Object-oriented programming language used for Flutter development with strong typing.",
         projectsList: [
-          { name: "All Flutter Projects", description: "Used as primary language for Flutter development" },
-          { name: "Custom Widgets", description: "Reusable UI components and animations" },
-          { name: "State Management", description: "Provider, Bloc, and Riverpod implementations" },
-          { name: "API Integration", description: "REST API consumption and data parsing" }
+          { name: "All Flutter Projects", description: "Used as primary language for Flutter development" }
         ]
       },
       kotlin: {
@@ -1466,24 +1605,22 @@
         description: "Native Android development with Kotlin, focusing on modern Android architecture.",
         projectsList: [
           { name: "Bus Tracking App", description: "Real-time location tracking with Google Maps" },
-          { name: "Task Manager", description: "Productivity app with notifications and reminders" }
+          { name: "Recipe App", description: "Cooking recipes with ingredients and instructions" }
         ]
       },
       java: {
         title: "Java Development",
         experience: "2 years",
-        projects: 3,
+        projects: 1,
         description: "Android app development using Java, with focus on legacy systems and enterprise applications.",
         projectsList: [
-          { name: "Healthcare App", description: "Doctor booking and health records management" },
-          { name: "Expense Tracker", description: "Personal finance management application" },
-          { name: "Social Media App", description: "Basic social networking platform" }
+          { name: "Healthcare App", description: "Doctor booking and health records management" }
         ]
       },
       firebase: {
         title: "Firebase Services",
         experience: "2 years",
-        projects: 6,
+        projects: 5,
         description: "Backend-as-a-service platform for authentication, database, storage, and analytics.",
         projectsList: [
           { name: "All Major Projects", description: "Used for backend services and real-time data" },
@@ -1496,19 +1633,17 @@
       rest: {
         title: "REST APIs",
         experience: "2 years",
-        projects: 5,
+        projects: 3,
         description: "Integration with RESTful web services using HTTP clients and JSON parsing.",
         projectsList: [
           { name: "Food Delivery App", description: "Integration with restaurant and payment APIs" },
-          { name: "Weather App", description: "Consuming weather data from external API" },
-          { name: "E-Commerce App", description: "Product catalog and order management APIs" },
           { name: "Healthcare App", description: "Medical data and appointment APIs" }
         ]
       },
       uiux: {
         title: "UI/UX Design",
         experience: "2 years",
-        projects: 6,
+        projects: 5,
         description: "Creating intuitive and visually appealing user interfaces with focus on user experience.",
         projectsList: [
           { name: "All Mobile Projects", description: "Designed user interfaces for all applications" },
@@ -1520,11 +1655,10 @@
       sql: {
         title: "SQL Database",
         experience: "1 year",
-        projects: 2,
+        projects: 1,
         description: "Database design and querying using SQL for local data storage in mobile applications.",
         projectsList: [
-          { name: "Healthcare App", description: "Local storage for offline medical records" },
-          { name: "Expense Tracker", description: "SQLite database for transaction history" }
+          { name: "Healthcare App", description: "Local storage for offline medical records" }
         ]
       }
     };
