@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,208 +7,1066 @@
 <title>Santu Das — Software Engineer @ TCS</title>
 <meta name="description" content="Santu Das — Software Engineer at TCS. Flutter & Android developer.">
 <meta name="theme-color" content="#0b0d14">
+
 <style>
-:root{--bg:#0b0d14;--t:#e8eaed;--m:#9aa0a6;--line:rgba(255,255,255,.09);--b:#4285F4;--r:#EA4335;--y:#FBBC05;--g:#34A853;--card:rgba(255,255,255,.035)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--t);font-family:"Google Sans",Inter,"Segoe UI",Roboto,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-::selection{background:rgba(66,133,244,.45)}
-/* background */
-.bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
-.bg i{position:absolute;border-radius:50%;filter:blur(110px);opacity:.28;animation:dr 26s ease-in-out infinite}
-.bg .a{width:520px;height:520px;background:var(--b);left:-140px;top:-120px}
-.bg .b{width:420px;height:420px;background:var(--r);right:-100px;top:8%;animation-delay:-8s;opacity:.18}
-.bg .c{width:460px;height:460px;background:var(--g);left:35%;bottom:-220px;animation-delay:-15s;opacity:.18}
-.bg .d{width:300px;height:300px;background:var(--y);right:12%;bottom:12%;animation-delay:-4s;opacity:.1}
-@keyframes dr{50%{transform:translate(70px,50px) scale(1.15)}}
-.bg:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);background-size:30px 30px;-webkit-mask-image:radial-gradient(ellipse at 30% 30%,#000,transparent 75%);mask-image:radial-gradient(ellipse at 30% 30%,#000,transparent 75%)}
-.spot{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:-1;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(66,133,244,.14),transparent 65%)}
-.prog{position:fixed;top:0;left:0;height:3px;width:0;z-index:99;background:linear-gradient(90deg,var(--b),var(--r),var(--y),var(--g))}
-/* layout */
-.wrap{max-width:1160px;margin:0 auto;padding:0 28px;display:flex;gap:70px}
-.side{flex:0 0 400px;height:100vh;position:sticky;top:0;display:flex;flex-direction:column;justify-content:space-between;padding:90px 0 56px}
-.main{flex:1;padding:90px 0 40px;min-width:0}
-.ph{width:92px;height:92px;border-radius:50%;position:relative;margin-bottom:22px;padding:3px;background:conic-gradient(var(--b),var(--r),var(--y),var(--g),var(--b))}
-.ph div{width:100%;height:100%;border-radius:50%;background:#12151f;display:grid;place-items:center;font-weight:800;font-size:26px;position:relative;overflow:hidden}
-.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-h1{margin:0;font-size:46px;line-height:1.05;letter-spacing:-1.5px;font-weight:800}
-h1 span{background:linear-gradient(90deg,var(--b),var(--r),var(--y),var(--g));-webkit-background-clip:text;background-clip:text;color:transparent}
-.role{margin:12px 0 0;font-size:19px;font-weight:600}
-.role b{color:var(--b)}
-.tag{margin:14px 0 0;color:var(--m);max-width:340px}
-.open{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:6px 14px;border-radius:99px;border:1px solid rgba(52,168,83,.5);background:rgba(52,168,83,.1);color:#81c995;font-size:13px;font-weight:600}
-.open:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--g);animation:pl 2s infinite}
-@keyframes pl{0%{box-shadow:0 0 0 0 rgba(52,168,83,.7)}100%{box-shadow:0 0 0 9px transparent}}
-nav{margin-top:44px;display:grid;gap:4px}
-nav a{display:flex;align-items:center;gap:14px;padding:7px 0;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--m);transition:.3s}
-nav a:before{content:"";width:28px;height:1px;background:var(--m);transition:.3s}
-nav a:hover,nav a.on{color:var(--t)}
-nav a.on:before,nav a:hover:before{width:70px;background:var(--b);height:2px}
-.soc{display:flex;gap:12px;align-items:center}
-.soc a{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;border:1px solid var(--line);background:var(--card);font-weight:800;font-size:13px;color:var(--m);transition:.3s}
-.soc a:hover{color:#fff;transform:translateY(-4px);border-color:var(--b);box-shadow:0 8px 22px rgba(66,133,244,.35)}
-.soc .cv{width:auto;padding:0 16px;color:#fff;background:var(--b);border:0;font-size:13px}
-/* sections */
-section{margin-bottom:96px;scroll-margin-top:70px}
-.h{display:none;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;margin:0 0 20px;color:var(--t)}
-p.about{color:var(--m);margin:0 0 14px}p.about b{color:var(--t);font-weight:600}
-.list .it{position:relative;display:grid;grid-template-columns:130px 1fr;gap:20px;padding:22px;margin:0 -22px;border-radius:16px;border:1px solid transparent;transition:.3s;cursor:default}
-.list:hover .it{opacity:.5}.list .it:hover{opacity:1;background:var(--card);border-color:var(--line);box-shadow:0 20px 50px rgba(0,0,0,.4)}
-.it .d{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--m);padding-top:4px}
-.it h3{margin:0;font-size:17px;font-weight:700}.it h3 span{color:var(--b)}
-.it p{margin:8px 0 12px;color:var(--m);font-size:14px}
-.it.pj{cursor:pointer}.it.pj h3:after{content:" ↗";display:inline-block;transition:.3s}.it.pj:hover h3:after{transform:translate(4px,-4px);color:var(--b)}
-.ch{display:flex;flex-wrap:wrap;gap:7px}
-.c{padding:5px 12px;border-radius:99px;font-size:12px;font-weight:700;background:rgba(66,133,244,.12);color:#8ab4f8;border:1px solid rgba(66,133,244,.25)}
-.c.r{background:rgba(234,67,53,.12);color:#f28b82;border-color:rgba(234,67,53,.28)}
-.c.y{background:rgba(251,188,5,.12);color:#fdd663;border-color:rgba(251,188,5,.28)}
-.c.g{background:rgba(52,168,83,.12);color:#81c995;border-color:rgba(52,168,83,.28)}
-.sk{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.box{padding:22px;border-radius:18px;background:var(--card);border:1px solid var(--line);transition:.3s}
-.box:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.2)}
-.box h4{margin:0 0 14px;font-size:15px;display:flex;align-items:center;gap:10px}
-.box h4:before{content:"";width:10px;height:10px;border-radius:50%;background:var(--k)}
-form{display:grid;gap:12px;max-width:520px}
-input,textarea{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--t);font:inherit;font-size:14px;transition:.3s}
-input:focus,textarea:focus{outline:0;border-color:var(--b);box-shadow:0 0 0 3px rgba(66,133,244,.25)}
-textarea{min-height:120px;resize:vertical}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:99px;border:0;background:var(--b);color:#fff;font:700 14px inherit;cursor:pointer;transition:.3s}
-.btn:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(66,133,244,.45)}
-.btn.o{background:transparent;border:1px solid var(--line);color:var(--t)}
-footer{color:var(--m);font-size:13px;padding-bottom:40px}
-/* popup */
-.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(5,7,14,.75);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:.3s}
-.modal.open{opacity:1;visibility:visible}
-.mc{position:relative;width:100%;max-width:640px;max-height:86vh;overflow:auto;padding:34px;border-radius:24px;background:#12151f;border:1px solid var(--line);box-shadow:0 30px 90px rgba(0,0,0,.7);transform:translateY(40px) scale(.95);transition:.45s cubic-bezier(.2,.9,.25,1.15)}
-.mc:before{content:"";position:absolute;left:0;right:0;top:0;height:4px;border-radius:24px 24px 0 0;background:linear-gradient(90deg,var(--b),var(--r),var(--y),var(--g))}
-.modal.open .mc{transform:none}
-.mx{position:absolute;right:16px;top:18px;width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--t);cursor:pointer;transition:.3s}
-.mx:hover{background:rgba(234,67,53,.25);transform:rotate(90deg)}
-.mc h3{margin:0 0 10px;font-size:26px;padding-right:40px}
-.mc h5{margin:22px 0 10px;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:var(--b)}
-.mc p{color:var(--m);margin:0}
-.mc ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.mc li{padding:10px 12px 10px 36px;position:relative;border-radius:12px;background:var(--card);border:1px solid var(--line);font-size:14px;color:#c4c7c5}
-.mc li:before{content:"✓";position:absolute;left:12px;top:10px;color:var(--g);font-weight:900}
-:focus-visible{outline:2px solid var(--b);outline-offset:3px;border-radius:8px}
-.rv{opacity:0;transform:translateY(26px);transition:.8s}.rv.on{opacity:1;transform:none}
-@media(max-width:960px){.wrap{display:block;padding:0 20px}.side{position:static;height:auto;padding:50px 0 10px}nav{display:none}.soc{margin-top:26px}.main{padding-top:30px}.h{display:block}section{margin-bottom:64px}.list .it{grid-template-columns:1fr;gap:6px;margin:0 -12px;padding:16px 12px}.sk{grid-template-columns:1fr}h1{font-size:38px}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:root {
+  --bg:#0b0d14;
+  --t:#e8eaed;
+  --m:#9aa0a6;
+  --line:rgba(255,255,255,.09);
+  --b:#4285F4;
+  --r:#EA4335;
+  --y:#FBBC05;
+  --g:#34A853;
+  --card:rgba(255,255,255,.035);
+}
+
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--t);
+  font-family:"Google Sans",Inter,"Segoe UI",Roboto,system-ui,sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+a { color:inherit; text-decoration:none; }
+::selection { background:rgba(66,133,244,.45); }
+
+/* Background */
+.bg { position:fixed; inset:0; z-index:-1; overflow:hidden; }
+
+.bg i {
+  position:absolute;
+  border-radius:50%;
+  filter:blur(110px);
+  opacity:.28;
+  animation:dr 26s ease-in-out infinite;
+}
+
+.bg .a {
+  width:520px;height:520px;
+  background:var(--b);
+  left:-140px;top:-120px;
+}
+
+.bg .b {
+  width:420px;height:420px;
+  background:var(--r);
+  right:-100px;top:8%;
+  animation-delay:-8s;
+  opacity:.18;
+}
+
+.bg .c {
+  width:460px;height:460px;
+  background:var(--g);
+  left:35%;bottom:-220px;
+  animation-delay:-15s;
+  opacity:.18;
+}
+
+.bg .d {
+  width:300px;height:300px;
+  background:var(--y);
+  right:12%;bottom:12%;
+  animation-delay:-4s;
+  opacity:.1;
+}
+
+@keyframes dr {
+  50% { transform:translate(70px,50px) scale(1.15); }
+}
+
+.bg:before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);
+  background-size:30px 30px;
+  -webkit-mask-image:radial-gradient(ellipse at 30% 30%,#000,transparent 75%);
+  mask-image:radial-gradient(ellipse at 30% 30%,#000,transparent 75%);
+}
+
+.spot {
+  position:fixed;
+  width:600px;height:600px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:-1;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle,rgba(66,133,244,.14),transparent 65%);
+}
+
+.prog {
+  position:fixed;
+  top:0;left:0;
+  height:3px;width:0;
+  z-index:99;
+  background:linear-gradient(90deg,var(--b),var(--r),var(--y),var(--g));
+}
+
+/* Layout */
+.wrap {
+  max-width:1160px;
+  margin:0 auto;
+  padding:0 28px;
+  display:flex;
+  gap:70px;
+}
+
+.side {
+  flex:0 0 400px;
+  height:100vh;
+  position:sticky;
+  top:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:90px 0 56px;
+}
+
+.main {
+  flex:1;
+  padding:90px 0 40px;
+  min-width:0;
+}
+
+.ph {
+  width:92px;height:92px;
+  border-radius:50%;
+  position:relative;
+  margin-bottom:22px;
+  padding:3px;
+  background:conic-gradient(var(--b),var(--r),var(--y),var(--g),var(--b));
+}
+
+.ph div {
+  width:100%;height:100%;
+  border-radius:50%;
+  background:#12151f;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+  font-size:26px;
+  position:relative;
+  overflow:hidden;
+}
+
+.ph img {
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+}
+
+h1 {
+  margin:0;
+  font-size:46px;
+  line-height:1.05;
+  letter-spacing:-1.5px;
+  font-weight:800;
+}
+
+h1 span {
+  background:linear-gradient(90deg,var(--b),var(--r),var(--y),var(--g));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.role {
+  margin:12px 0 0;
+  font-size:19px;
+  font-weight:600;
+}
+
+.role b { color:var(--b); }
+
+.tag {
+  margin:14px 0 0;
+  color:var(--m);
+  max-width:340px;
+}
+
+.open {
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:18px;
+  padding:6px 14px;
+  border-radius:99px;
+  border:1px solid rgba(52,168,83,.5);
+  background:rgba(52,168,83,.1);
+  color:#81c995;
+  font-size:13px;
+  font-weight:600;
+}
+
+.open:before {
+  content:"";
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--g);
+  animation:pl 2s infinite;
+}
+
+@keyframes pl {
+  0% { box-shadow:0 0 0 0 rgba(52,168,83,.7); }
+  100% { box-shadow:0 0 0 9px transparent; }
+}
+
+/* Navigation */
+nav {
+  margin-top:44px;
+  display:grid;
+  gap:4px;
+}
+
+nav a {
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:7px 0;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--m);
+  transition:.3s;
+}
+
+nav a:before {
+  content:"";
+  width:28px;height:1px;
+  background:var(--m);
+  transition:.3s;
+}
+
+nav a:hover,nav a.on { color:var(--t); }
+
+nav a.on:before,nav a:hover:before {
+  width:70px;
+  background:var(--b);
+  height:2px;
+}
+
+/* Social media icons */
+.soc {
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.soc a {
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line);
+  background:var(--card);
+  transition:.3s;
+  overflow:hidden;
+}
+
+.soc a img {
+  display:block;
+  width:22px;
+  height:22px;
+  object-fit:contain;
+}
+
+/* Original brand-colour backgrounds */
+.soc a[title="GitHub"] {
+  background:#181717;
+  border-color:#181717;
+}
+
+.soc a[title="LinkedIn"] {
+  background:#0A66C2;
+  border-color:#0A66C2;
+}
+
+.soc a[title="X (Twitter)"] {
+  background:#000;
+  border-color:#000;
+}
+
+.soc a[title="Instagram"] {
+  background:linear-gradient(135deg,#833AB4 0%,#E1306C 50%,#FCAF45 100%);
+  border-color:#E1306C;
+}
+
+.soc a:hover {
+  transform:translateY(-4px);
+  box-shadow:0 8px 22px rgba(66,133,244,.35);
+}
+
+/* Sections */
+section {
+  margin-bottom:96px;
+  scroll-margin-top:70px;
+}
+
+.h {
+  display:none;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin:0 0 20px;
+  color:var(--t);
+}
+
+p.about {
+  color:var(--m);
+  margin:0 0 14px;
+}
+
+p.about b {
+  color:var(--t);
+  font-weight:600;
+}
+
+/* Experience and projects */
+.list .it {
+  position:relative;
+  display:grid;
+  grid-template-columns:130px 1fr;
+  gap:20px;
+  padding:22px;
+  margin:0 -22px;
+  border-radius:16px;
+  border:1px solid transparent;
+  transition:.3s;
+  cursor:default;
+}
+
+.list:hover .it { opacity:.5; }
+
+.list .it:hover {
+  opacity:1;
+  background:var(--card);
+  border-color:var(--line);
+  box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
+
+.it .d {
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--m);
+  padding-top:4px;
+}
+
+.it h3 {
+  margin:0;
+  font-size:17px;
+  font-weight:700;
+}
+
+.it h3 span { color:var(--b); }
+
+.it p {
+  margin:8px 0 12px;
+  color:var(--m);
+  font-size:14px;
+}
+
+.it.pj { cursor:pointer; }
+
+.it.pj h3:after {
+  content:" ↗";
+  display:inline-block;
+  transition:.3s;
+}
+
+.it.pj:hover h3:after {
+  transform:translate(4px,-4px);
+  color:var(--b);
+}
+
+.ch {
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.c {
+  padding:5px 12px;
+  border-radius:99px;
+  font-size:12px;
+  font-weight:700;
+  background:rgba(66,133,244,.12);
+  color:#8ab4f8;
+  border:1px solid rgba(66,133,244,.25);
+}
+
+.c.r {
+  background:rgba(234,67,53,.12);
+  color:#f28b82;
+  border-color:rgba(234,67,53,.28);
+}
+
+.c.y {
+  background:rgba(251,188,5,.12);
+  color:#fdd663;
+  border-color:rgba(251,188,5,.28);
+}
+
+.c.g {
+  background:rgba(52,168,83,.12);
+  color:#81c995;
+  border-color:rgba(52,168,83,.28);
+}
+
+/* Skills */
+.sk {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.box {
+  padding:22px;
+  border-radius:18px;
+  background:var(--card);
+  border:1px solid var(--line);
+  transition:.3s;
+}
+
+.box:hover {
+  transform:translateY(-5px);
+  border-color:rgba(255,255,255,.2);
+}
+
+.box h4 {
+  margin:0 0 14px;
+  font-size:15px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.box h4:before {
+  content:"";
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--k);
+}
+
+/* Contact form */
+form {
+  display:grid;
+  gap:12px;
+  max-width:520px;
+}
+
+input,textarea {
+  width:100%;
+  padding:13px 14px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:var(--card);
+  color:var(--t);
+  font:inherit;
+  font-size:14px;
+  transition:.3s;
+}
+
+input:focus,textarea:focus {
+  outline:0;
+  border-color:var(--b);
+  box-shadow:0 0 0 3px rgba(66,133,244,.25);
+}
+
+textarea {
+  min-height:120px;
+  resize:vertical;
+}
+
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:12px 22px;
+  border-radius:99px;
+  border:0;
+  background:var(--b);
+  color:#fff;
+  font-family:"Google Sans",Inter,"Segoe UI",Roboto,system-ui,sans-serif;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.2;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn:hover {
+  transform:translateY(-3px);
+  box-shadow:0 10px 26px rgba(66,133,244,.45);
+}
+
+.btn.o {
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--t);
+}
+
+footer {
+  color:var(--m);
+  font-size:13px;
+  padding-bottom:40px;
+}
+
+/* Project popup */
+.modal {
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:grid;
+  place-items:center;
+  padding:20px;
+  background:rgba(5,7,14,.75);
+  backdrop-filter:blur(10px);
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+}
+
+.modal.open {
+  opacity:1;
+  visibility:visible;
+}
+
+.mc {
+  position:relative;
+  width:100%;
+  max-width:640px;
+  max-height:86vh;
+  overflow:auto;
+  padding:34px;
+  border-radius:24px;
+  background:#12151f;
+  border:1px solid var(--line);
+  box-shadow:0 30px 90px rgba(0,0,0,.7);
+  transform:translateY(40px) scale(.95);
+  transition:.45s cubic-bezier(.2,.9,.25,1.15);
+}
+
+.mc:before {
+  content:"";
+  position:absolute;
+  left:0;right:0;top:0;
+  height:4px;
+  border-radius:24px 24px 0 0;
+  background:linear-gradient(90deg,var(--b),var(--r),var(--y),var(--g));
+}
+
+.modal.open .mc { transform:none; }
+
+.mx {
+  position:absolute;
+  right:16px;top:18px;
+  width:36px;height:36px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:var(--card);
+  color:var(--t);
+  cursor:pointer;
+  transition:.3s;
+}
+
+.mx:hover {
+  background:rgba(234,67,53,.25);
+  transform:rotate(90deg);
+}
+
+.mc h3 {
+  margin:0 0 10px;
+  font-size:26px;
+  padding-right:40px;
+}
+
+.mc h5 {
+  margin:22px 0 10px;
+  font-size:12px;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  color:var(--b);
+}
+
+.mc p { color:var(--m);margin:0; }
+
+.mc ul {
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:8px;
+}
+
+.mc li {
+  padding:10px 12px 10px 36px;
+  position:relative;
+  border-radius:12px;
+  background:var(--card);
+  border:1px solid var(--line);
+  font-size:14px;
+  color:#c4c7c5;
+}
+
+.mc li:before {
+  content:"✓";
+  position:absolute;
+  left:12px;top:10px;
+  color:var(--g);
+  font-weight:900;
+}
+
+:focus-visible {
+  outline:2px solid var(--b);
+  outline-offset:3px;
+  border-radius:8px;
+}
+
+.rv {
+  opacity:0;
+  transform:translateY(26px);
+  transition:.8s;
+}
+
+.rv.on {
+  opacity:1;
+  transform:none;
+}
+
+/* Responsive */
+@media(max-width:960px) {
+  .wrap {
+    display:block;
+    padding:0 20px;
+  }
+
+  .side {
+    position:static;
+    height:auto;
+    padding:50px 0 10px;
+  }
+
+  nav { display:none; }
+  .soc { margin-top:26px; }
+  .main { padding-top:30px; }
+  .h { display:block; }
+  section { margin-bottom:64px; }
+
+  .list .it {
+    grid-template-columns:1fr;
+    gap:6px;
+    margin:0 -12px;
+    padding:16px 12px;
+  }
+
+  .sk { grid-template-columns:1fr; }
+  h1 { font-size:38px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  * {
+    animation:none!important;
+    transition:none!important;
+  }
+}
 </style>
 </head>
+
 <body>
 <div class="prog" id="prog"></div>
-<div class="bg"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i></div>
+<div class="bg">
+  <i class="a"></i>
+  <i class="b"></i>
+  <i class="c"></i>
+  <i class="d"></i>
+</div>
 <div class="spot" id="spot"></div>
 
 <div class="wrap">
 <header class="side">
   <div>
-    <div class="ph"><div>SD<img src="santu.jpeg" alt="Santu Das" onerror="this.remove()"></div></div>
+    <div class="ph">
+      <div>SD<img src="santu.jpeg" alt="Santu Das" onerror="this.remove()"></div>
+    </div>
+
     <h1>Santu <span>Das</span></h1>
     <p class="role">Software Engineer at <b>TCS</b></p>
     <p class="tag">I build fast, reliable Flutter and Android apps — from real-time tracking to AI-powered tools.</p>
     <span class="open">Open to collaborate</span>
+
     <nav>
-      <a href="#about" class="on">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+      <a href="#about" class="on">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 
+  <!-- Social media icons: Resume button removed -->
+  <div class="soc">
+    <a href="https://github.com/santudas-dev" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+      <img src="https://cdn.simpleicons.org/github/FFFFFF" alt="GitHub">
+    </a>
 
-<div class="soc">
-  <a href="https://github.com/santudas-dev" target="_blank" rel="noopener" title="GitHub">
-    <img src="github.png" alt="GitHub">
-  </a>
+    <a href="https://www.linkedin.com/in/santu-das-8892a7284/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+      <img src="https://cdn.simpleicons.org/linkedin/FFFFFF" alt="LinkedIn">
+    </a>
 
-  <a href="https://www.linkedin.com/in/santu-das-8892a7284/" target="_blank" rel="noopener" title="LinkedIn">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-  </a>
+    <a href="https://x.com/SantuDasAndroid" target="_blank" rel="noopener noreferrer" title="X (Twitter)" aria-label="X (Twitter)">
+      <img src="https://cdn.simpleicons.org/x/FFFFFF" alt="X">
+    </a>
 
-  <a href="https://x.com/SantuDasAndroid" target="_blank" rel="noopener" title="X (Twitter)">
-    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/x.svg" alt="X">
-  </a>
-
-  <a href="https://www.instagram.com/santudas9112/" target="_blank" rel="noopener" title="Instagram">
-    <img src="insta.png" alt="Instagram">
-  </a>
-
-  <a class="cv" href="Santu_Das_Resume.docx" download>Resume ↓</a>
-</div>
-
-
-  
+    <a href="https://www.instagram.com/santudas9112/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
+      <img src="https://cdn.simpleicons.org/instagram/FFFFFF" alt="Instagram">
+    </a>
+  </div>
 </header>
 
 <main class="main">
-<section id="about" class="rv"><h2 class="h">About</h2>
+
+<section id="about" class="rv">
+  <h2 class="h">About</h2>
   <p class="about">I'm a <b>Software Engineer at Tata Consultancy Services (TCS)</b> who loves turning complex ideas into smooth, intuitive mobile products.</p>
   <p class="about">I specialise in <b>Flutter, Dart, Kotlin and Java</b>, with Firebase and Supabase on the backend. My projects cover real-time maps, healthcare, on-device machine learning and cloud sync — always with clean code, good UX and dependable performance in mind.</p>
 </section>
 
-<section id="experience" class="rv"><h2 class="h">Experience</h2>
+<section id="experience" class="rv">
+  <h2 class="h">Experience</h2>
   <div class="list">
-    <div class="it"><div class="d">Present</div><div><h3>Software Engineer · <span>TCS</span></h3><p>Designing, building and maintaining enterprise software in an Agile team; writing clean, scalable, well-tested code and collaborating across teams to ship quality features on time.</p><div class="ch"><span class="c">Agile</span><span class="c r">Code Reviews</span><span class="c y">Problem Solving</span></div></div></div>
-    <div class="it"><div class="d">Projects</div><div><h3>Mobile App Developer · <span>Personal</span></h3><p>Built 5+ apps across healthcare, transit, hostel management, food delivery and ML utilities, integrating maps, notifications, authentication and cloud databases.</p><div class="ch"><span class="c">Flutter</span><span class="c r">Kotlin</span><span class="c y">Firebase</span><span class="c g">Supabase</span></div></div></div>
+    <div class="it">
+      <div class="d">Present</div>
+      <div>
+        <h3>Software Engineer · <span>TCS</span></h3>
+        <p>Designing, building and maintaining enterprise software in an Agile team; writing clean, scalable, well-tested code and collaborating across teams to ship quality features on time.</p>
+        <div class="ch">
+          <span class="c">Agile</span>
+          <span class="c r">Code Reviews</span>
+          <span class="c y">Problem Solving</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="it">
+      <div class="d">Projects</div>
+      <div>
+        <h3>Mobile App Developer · <span>Personal</span></h3>
+        <p>Built 5+ apps across healthcare, transit, hostel management, food delivery and ML utilities, integrating maps, notifications, authentication and cloud databases.</p>
+        <div class="ch">
+          <span class="c">Flutter</span>
+          <span class="c r">Kotlin</span>
+          <span class="c y">Firebase</span>
+          <span class="c g">Supabase</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="projects" class="rv"><h2 class="h">Projects</h2>
+<section id="projects" class="rv">
+  <h2 class="h">Projects</h2>
   <div class="list">
-    <div class="it pj" tabindex="0" role="button" data-p="health"><div class="d">Android</div><div><h3>Healthcare Management System</h3><p>Appointment booking, doctor availability and secure telemedicine video calls with real-time Firebase sync.</p><div class="ch"><span class="c">Java</span><span class="c r">XML</span><span class="c y">Firebase</span></div></div></div>
-    <div class="it pj" tabindex="0" role="button" data-p="bus"><div class="d">Android</div><div><h3>Bus Tracking Application</h3><p>Live bus locations, route display and arrival estimates using Kotlin, Firebase and Google Maps.</p><div class="ch"><span class="c">Kotlin</span><span class="c r">Firebase</span><span class="c g">Google Maps</span></div></div></div>
-    <div class="it pj" tabindex="0" role="button" data-p="hostel"><div class="d">Flutter</div><div><h3>E-HostelCare</h3><p>Cross-platform hostel complaint app with real-time status updates and resolution notifications.</p><div class="ch"><span class="c">Flutter</span><span class="c r">Firebase</span><span class="c g">Supabase</span></div></div></div>
-    <div class="it pj" tabindex="0" role="button" data-p="quick"><div class="d">Flutter</div><div><h3>Quick Bite — Food Delivery</h3><p>Browse menus, order and track deliveries with a personalised, secure experience.</p><div class="ch"><span class="c">Flutter</span><span class="c y">Firebase</span><span class="c g">SharedPreferences</span></div></div></div>
-    <div class="it pj" tabindex="0" role="button" data-p="textlens"><div class="d">Flutter · ML</div><div><h3>TextLens</h3><p>Scan text, translate it and recognise objects in real time with Google ML Kit.</p><div class="ch"><span class="c">Flutter</span><span class="c r">Google ML Kit</span><span class="c y">Firebase</span></div></div></div>
+    <div class="it pj" tabindex="0" role="button" data-p="health">
+      <div class="d">Android</div>
+      <div>
+        <h3>Healthcare Management System</h3>
+        <p>Appointment booking, doctor availability and secure telemedicine video calls with real-time Firebase sync.</p>
+        <div class="ch">
+          <span class="c">Java</span><span class="c r">XML</span><span class="c y">Firebase</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="it pj" tabindex="0" role="button" data-p="bus">
+      <div class="d">Android</div>
+      <div>
+        <h3>Bus Tracking Application</h3>
+        <p>Live bus locations, route display and arrival estimates using Kotlin, Firebase and Google Maps.</p>
+        <div class="ch">
+          <span class="c">Kotlin</span><span class="c r">Firebase</span><span class="c g">Google Maps</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="it pj" tabindex="0" role="button" data-p="hostel">
+      <div class="d">Flutter</div>
+      <div>
+        <h3>E-HostelCare</h3>
+        <p>Cross-platform hostel complaint app with real-time status updates and resolution notifications.</p>
+        <div class="ch">
+          <span class="c">Flutter</span><span class="c r">Firebase</span><span class="c g">Supabase</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="it pj" tabindex="0" role="button" data-p="quick">
+      <div class="d">Flutter</div>
+      <div>
+        <h3>Quick Bite — Food Delivery</h3>
+        <p>Browse menus, order and track deliveries with a personalised, secure experience.</p>
+        <div class="ch">
+          <span class="c">Flutter</span><span class="c y">Firebase</span><span class="c g">SharedPreferences</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="it pj" tabindex="0" role="button" data-p="textlens">
+      <div class="d">Flutter · ML</div>
+      <div>
+        <h3>TextLens</h3>
+        <p>Scan text, translate it and recognise objects in real time with Google ML Kit.</p>
+        <div class="ch">
+          <span class="c">Flutter</span><span class="c r">Google ML Kit</span><span class="c y">Firebase</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="skills" class="rv"><h2 class="h">Skills</h2>
+<section id="skills" class="rv">
+  <h2 class="h">Skills</h2>
   <div class="sk">
-    <div class="box" style="--k:var(--b)"><h4>Mobile</h4><div class="ch"><span class="c">Flutter</span><span class="c">Dart</span><span class="c">Kotlin</span><span class="c">Android SDK</span><span class="c">Jetpack Compose</span></div></div>
-    <div class="box" style="--k:var(--r)"><h4>Languages &amp; Data</h4><div class="ch"><span class="c r">Java</span><span class="c r">SQL</span><span class="c r">REST APIs</span><span class="c r">JSON</span></div></div>
-    <div class="box" style="--k:var(--y)"><h4>Backend &amp; Cloud</h4><div class="ch"><span class="c y">Firebase</span><span class="c y">Firestore</span><span class="c y">Supabase</span><span class="c y">Push Notifications</span><span class="c y">Google ML Kit</span></div></div>
-    <div class="box" style="--k:var(--g)"><h4>Engineering</h4><div class="ch"><span class="c g">Git &amp; GitHub</span><span class="c g">MVVM</span><span class="c g">Agile / SDLC</span><span class="c g">DSA</span><span class="c g">UI/UX</span></div></div>
+    <div class="box" style="--k:var(--b)">
+      <h4>Mobile</h4>
+      <div class="ch">
+        <span class="c">Flutter</span><span class="c">Dart</span><span class="c">Kotlin</span><span class="c">Android SDK</span><span class="c">Jetpack Compose</span>
+      </div>
+    </div>
+
+    <div class="box" style="--k:var(--r)">
+      <h4>Languages &amp; Data</h4>
+      <div class="ch">
+        <span class="c r">Java</span><span class="c r">SQL</span><span class="c r">REST APIs</span><span class="c r">JSON</span>
+      </div>
+    </div>
+
+    <div class="box" style="--k:var(--y)">
+      <h4>Backend &amp; Cloud</h4>
+      <div class="ch">
+        <span class="c y">Firebase</span><span class="c y">Firestore</span><span class="c y">Supabase</span><span class="c y">Push Notifications</span><span class="c y">Google ML Kit</span>
+      </div>
+    </div>
+
+    <div class="box" style="--k:var(--g)">
+      <h4>Engineering</h4>
+      <div class="ch">
+        <span class="c g">Git &amp; GitHub</span><span class="c g">MVVM</span><span class="c g">Agile / SDLC</span><span class="c g">DSA</span><span class="c g">UI/UX</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<section id="contact" class="rv"><h2 class="h">Contact</h2>
+<section id="contact" class="rv">
+  <h2 class="h">Contact</h2>
   <p class="about">Have a project or opportunity in mind? Send a message — I usually reply within a day.</p>
-  <form id="f"><input id="n" placeholder="Your name" aria-label="Name" required><input id="e" type="email" placeholder="your@email.com" aria-label="Email" required><textarea id="m" placeholder="Tell me about your project..." aria-label="Message" required></textarea>
-  <div><button class="btn" type="submit">Send message →</button></div></form>
-  <p class="about" style="margin-top:18px">Or email <a href="mailto:santudas9535@gmail.com" style="color:var(--b);font-weight:600">santudas9535@gmail.com</a></p>
+
+  <form id="f">
+    <input id="n" placeholder="Your name" aria-label="Name" required>
+    <input id="e" type="email" placeholder="your@email.com" aria-label="Email" required>
+    <textarea id="m" placeholder="Tell me about your project..." aria-label="Message" required></textarea>
+    <div>
+      <button class="btn" type="submit">Send message →</button>
+    </div>
+  </form>
+
+  <p class="about" style="margin-top:18px">
+    Or email
+    <a href="mailto:santudas9535@gmail.com" style="color:var(--b);font-weight:600">santudas9535@gmail.com</a>
+  </p>
 </section>
+
 <footer>© <span id="y"></span> Santu Das · Software Engineer @ TCS</footer>
 </main>
 </div>
 
-<div class="modal" id="modal" aria-hidden="true"><div class="mc" role="dialog" aria-modal="true" aria-labelledby="mt"><button class="mx" id="mx" aria-label="Close">✕</button><div id="mb"></div></div></div>
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="mc" role="dialog" aria-modal="true" aria-labelledby="mt">
+    <button class="mx" id="mx" aria-label="Close">✕</button>
+    <div id="mb"></div>
+  </div>
+</div>
 
 <script>
-var P={
-health:{t:"Healthcare Management System",c:["Java","XML","Firebase"],o:"An Android app that makes healthcare more accessible: patients check doctor availability, book appointments and receive instant confirmation in one intuitive interface.",f:["Real-time doctor availability and appointment booking","Instant booking confirmations","Secure video calls for telemedicine","Firebase real-time data synchronisation"]},
-bus:{t:"Bus Tracking Application",c:["Kotlin","Firebase","Google Maps"],o:"A native Kotlin app showing live bus locations so commuters know where the bus is and when it will arrive.",f:["Live location updates via Firebase","Route visualisation on Google Maps","Estimated arrival times"]},
-hostel:{t:"E-HostelCare",c:["Flutter","Dart","Firebase","Supabase"],o:"A cross-platform app that streamlines hostel management: students raise complaints digitally and follow them through to resolution.",f:["Digital complaint submission","Real-time status updates","Notification when wardens resolve an issue"]},
-quick:{t:"Quick Bite — Food Delivery",c:["Flutter","Firebase","SharedPreferences"],o:"A user-friendly cross-platform food delivery app that simplifies ordering from favourite restaurants.",f:["Browse menus and place orders","Track deliveries","Personalised experience with secure data handling"]},
-textlens:{t:"TextLens",c:["Flutter","Firebase","Google ML Kit"],o:"A versatile app for text scanning, translation and real-time object recognition powered by machine learning.",f:["Extract text from images","Translate into preferred languages, including typed text","Identify objects in images in real time"]}};
-var M=document.getElementById('modal'),B=document.getElementById('mb'),last;
-function openP(k){var d=P[k];last=document.activeElement;
-B.innerHTML='<h3 id="mt">'+d.t+'</h3><div class="ch">'+d.c.map(function(x){return '<span class="c">'+x+'</span>'}).join('')+'</div><h5>Overview</h5><p>'+d.o+'</p><h5>Key features</h5><ul>'+d.f.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px"><a class="btn" href="https://github.com/santudas-dev" target="_blank" rel="noopener">View on GitHub ↗</a><button class="btn o" onclick="closeP()">Close</button></div>';
-M.classList.add('open');M.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';document.getElementById('mx').focus()}
-function closeP(){M.classList.remove('open');M.setAttribute('aria-hidden','true');document.body.style.overflow='';if(last)last.focus()}
-document.addEventListener('click',function(e){var c=e.target.closest('[data-p]');if(e.target===M||e.target.closest('#mx'))return closeP();if(c)openP(c.dataset.p)});
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeP();if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-p]')){e.preventDefault();openP(e.target.dataset.p)}});
-document.getElementById('y').textContent=new Date().getFullYear();
-/* scroll-spy, reveal, progress, spotlight */
-var links=document.querySelectorAll('nav a'),io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-35% 0px -55% 0px'});
-document.querySelectorAll('section').forEach(function(x){io.observe(x)});
-var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target)}})},{threshold:.08});
-document.querySelectorAll('.rv').forEach(function(x){ro.observe(x)});
-var sp=document.getElementById('spot'),pg=document.getElementById('prog');
-addEventListener('mousemove',function(e){sp.style.left=e.clientX+'px';sp.style.top=e.clientY+'px'});
-addEventListener('scroll',function(){var h=document.documentElement;pg.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
-document.getElementById('f').addEventListener('submit',function(ev){ev.preventDefault();
-var n=document.getElementById('n').value.trim(),e=document.getElementById('e').value.trim(),m=document.getElementById('m').value.trim();
-location.href='mailto:santudas9535@gmail.com?subject='+encodeURIComponent('Portfolio Contact from '+n)+'&body='+encodeURIComponent('Name: '+n+'\nEmail: '+e+'\n\nMessage:\n'+m)});
+var P = {
+  health: {
+    t:"Healthcare Management System",
+    c:["Java","XML","Firebase"],
+    o:"An Android app that makes healthcare more accessible: patients check doctor availability, book appointments and receive instant confirmation in one intuitive interface.",
+    f:[
+      "Real-time doctor availability and appointment booking",
+      "Instant booking confirmations",
+      "Secure video calls for telemedicine",
+      "Firebase real-time data synchronisation"
+    ]
+  },
+  bus: {
+    t:"Bus Tracking Application",
+    c:["Kotlin","Firebase","Google Maps"],
+    o:"A native Kotlin app showing live bus locations so commuters know where the bus is and when it will arrive.",
+    f:[
+      "Live location updates via Firebase",
+      "Route visualisation on Google Maps",
+      "Estimated arrival times"
+    ]
+  },
+  hostel: {
+    t:"E-HostelCare",
+    c:["Flutter","Dart","Firebase","Supabase"],
+    o:"A cross-platform app that streamlines hostel management: students raise complaints digitally and follow them through to resolution.",
+    f:[
+      "Digital complaint submission",
+      "Real-time status updates",
+      "Notification when wardens resolve an issue"
+    ]
+  },
+  quick: {
+    t:"Quick Bite — Food Delivery",
+    c:["Flutter","Firebase","SharedPreferences"],
+    o:"A user-friendly cross-platform food delivery app that simplifies ordering from favourite restaurants.",
+    f:[
+      "Browse menus and place orders",
+      "Track deliveries",
+      "Personalised experience with secure data handling"
+    ]
+  },
+  textlens: {
+    t:"TextLens",
+    c:["Flutter","Firebase","Google ML Kit"],
+    o:"A versatile app for text scanning, translation and real-time object recognition powered by machine learning.",
+    f:[
+      "Extract text from images",
+      "Translate into preferred languages, including typed text",
+      "Identify objects in images in real time"
+    ]
+  }
+};
+
+var M = document.getElementById('modal');
+var B = document.getElementById('mb');
+var last;
+
+function openP(k) {
+  var d = P[k];
+  last = document.activeElement;
+
+  B.innerHTML =
+    '<h3 id="mt">'+d.t+'</h3>' +
+    '<div class="ch">'+d.c.map(function(x) {
+      return '<span class="c">'+x+'</span>';
+    }).join('')+'</div>' +
+    '<h5>Overview</h5><p>'+d.o+'</p>' +
+    '<h5>Key features</h5><ul>'+d.f.map(function(x) {
+      return '<li>'+x+'</li>';
+    }).join('')+'</ul>' +
+    '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px">' +
+    '<a class="btn" href="https://github.com/santudas-dev" target="_blank" rel="noopener">View on GitHub ↗</a>' +
+    '<button class="btn o" onclick="closeP()">Close</button></div>';
+
+  M.classList.add('open');
+  M.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  document.getElementById('mx').focus();
+}
+
+function closeP() {
+  M.classList.remove('open');
+  M.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  if(last) last.focus();
+}
+
+document.addEventListener('click',function(e) {
+  var c = e.target.closest('[data-p]');
+  if(e.target===M || e.target.closest('#mx')) return closeP();
+  if(c) openP(c.dataset.p);
+});
+
+document.addEventListener('keydown',function(e) {
+  if(e.key==='Escape') closeP();
+
+  if((e.key==='Enter'||e.key===' ') && e.target.matches('[data-p]')) {
+    e.preventDefault();
+    openP(e.target.dataset.p);
+  }
+});
+
+document.getElementById('y').textContent = new Date().getFullYear();
+
+/* Scroll spy, reveal, progress, spotlight */
+var links = document.querySelectorAll('nav a');
+
+var io = new IntersectionObserver(function(es) {
+  es.forEach(function(e) {
+    if(e.isIntersecting) {
+      e.target.classList.add('on');
+      links.forEach(function(a) {
+        a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id);
+      });
+    }
+  });
+},{rootMargin:'-35% 0px -55% 0px'});
+
+document.querySelectorAll('section').forEach(function(x) {
+  io.observe(x);
+});
+
+var ro = new IntersectionObserver(function(es) {
+  es.forEach(function(e) {
+    if(e.isIntersecting) {
+      e.target.classList.add('on');
+      ro.unobserve(e.target);
+    }
+  });
+},{threshold:.08});
+
+document.querySelectorAll('.rv').forEach(function(x) {
+  ro.observe(x);
+});
+
+var sp = document.getElementById('spot');
+var pg = document.getElementById('prog');
+
+addEventListener('mousemove',function(e) {
+  sp.style.left=e.clientX+'px';
+  sp.style.top=e.clientY+'px';
+});
+
+addEventListener('scroll',function() {
+  var h = document.documentElement;
+  var max = h.scrollHeight-h.clientHeight;
+  pg.style.width=(max ? h.scrollTop/max*100 : 0)+'%';
+},{passive:true});
+
+/* Contact form */
+document.getElementById('f').addEventListener('submit',function(ev) {
+  ev.preventDefault();
+
+  var n = document.getElementById('n').value.trim();
+  var e = document.getElementById('e').value.trim();
+  var m = document.getElementById('m').value.trim();
+
+  location.href =
+    'mailto:santudas9535@gmail.com?subject='+
+    encodeURIComponent('Portfolio Contact from '+n)+
+    '&body='+
+    encodeURIComponent('Name: '+n+'\nEmail: '+e+'\n\nMessage:\n'+m);
+});
 </script>
 </body>
 </html>
